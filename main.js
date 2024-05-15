@@ -1,15 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-document.querySelector(".btn").addEventListener("click",function(){
+document.querySelector(".num").addEventListener("keypress",function(event){
+    if (event.key === "Enter"){
+        buscarPokemon();
+    }
+});
+
+document.querySelector(".btn").addEventListener("click",buscarPokemon);
+
+function buscarPokemon(){
 
 const pokemon = document.querySelector(".num").value.toLowerCase();
 const url =`https://pokeapi.co/api/v2/pokemon/${pokemon}`;fetch(url)
     .then(Response =>Response.json())
     .then(data => {showLetter(data);
-    }).catch(Error => {
-        mostrarError("Tu pokemon no existe")});
+    })
+    .catch(Error => {
+        mostrarError("Tu pokemon no existe");
 });
-
+}
 function showLetter(data){
     let pokemonCard = document.querySelector("#pokemon-card");
     pokemonCard.innerHTML = "";
@@ -33,5 +42,6 @@ pokemonCard.innerHTML = cardHTML;
 
 function mostrarError(mensaje) {
     let cardError = document.querySelector("#pokemon-card");
-   cardError.innerHTML = `<h3>Error: ${mensaje}</h3>`}
+   cardError.innerHTML = `<h3>Error: ${mensaje}</h3>`;
+}
 });
