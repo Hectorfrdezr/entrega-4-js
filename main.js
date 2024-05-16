@@ -29,9 +29,9 @@ function showLetter(data){
     let altura = data.height/10;
     let peso = data.weight/10;
 
-    var cardHTML = `
-    <img src="${imagen}" alt="${nombre}">
+    let cardHTML = `
     <h3>${nombre}</h3>
+    <img src="${imagen}" alt="${nombre}">
     <p><strong>Tipo(s):</strong> ${tipos}</p>
     <p><strong>Altura:</strong> ${altura} m</p>
     <p><strong>Peso:</strong> ${peso} Kg</p>
