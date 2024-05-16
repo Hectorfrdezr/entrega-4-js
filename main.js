@@ -13,10 +13,13 @@ function buscarPokemon(){
 const pokemon = document.querySelector(".num").value.toLowerCase();
 const url =`https://pokeapi.co/api/v2/pokemon/${pokemon}`;fetch(url)
     .then(Response =>Response.json())
-    .then(data => {showLetter(data);
+    .then(data => {
+        showLetter(data);
+        mostrarCard();
     })
     .catch(Error => {
         mostrarError("Tu pokemon no existe");
+        mostrarCard();
 });
 }
 function showLetter(data){
@@ -44,4 +47,14 @@ function mostrarError(mensaje) {
     let cardError = document.querySelector("#pokemon-card");
    cardError.innerHTML = `<h3>Error: ${mensaje}</h3>`;
 }
+function ocultarCard(){
+    let card = document.querySelector(".card");
+    card.style.display = `none`; 
+}
+function mostrarCard(){
+    let card = document.querySelector(".card");
+    card.style.display = "block";
+}
+ocultarCard();
+
 });
