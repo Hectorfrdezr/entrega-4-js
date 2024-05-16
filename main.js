@@ -46,6 +46,12 @@ pokemonCard.innerHTML = cardHTML;
 function mostrarError(mensaje) {
     let cardError = document.querySelector("#pokemon-card");
    cardError.innerHTML = `<h3>Error: ${mensaje}</h3>`;
+
+   setTimeout(function() {
+    cardError.innerHTML = '';
+    ocultarCard();
+}, 2000.);
+;
 }
 function ocultarCard(){
     let card = document.querySelector(".card");
@@ -56,5 +62,7 @@ function mostrarCard(){
     card.style.display = "block";
 }
 ocultarCard();
+
+
 
 });
