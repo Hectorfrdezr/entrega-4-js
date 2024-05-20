@@ -20,6 +20,7 @@ const url =`https://pokeapi.co/api/v2/pokemon/${pokemon}`;fetch(url)
     .catch(Error => {
         mostrarError("Tu pokemon no existe");
         mostrarCard();
+        
 });
 }
 function showLetter(data){
